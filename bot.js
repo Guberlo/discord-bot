@@ -27,7 +27,7 @@ client.on('message', message => {
     const commandName = args.shift().toLowerCase();
     
     if (!client.commands.has(commandName)){
-        message.reply('This command doesn\'t exist.. yet');
+        message.reply('Forse eri troppo impegnato a vederti i video di CROIX98 per capire che questo comando non esiste? :poop: ');
         return;
     } 
 
