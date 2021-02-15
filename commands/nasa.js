@@ -10,7 +10,7 @@ module.exports = {
     async execute(message, args) {
         try {
             let response = (await axios.get(url)).data;
-             let nasaEmbed = new Discord.MessageEmbed()
+            let nasaEmbed = new Discord.MessageEmbed()
              .setColor('#732694')
              .setTitle(response.title)
              .setAuthor(response.copyright)
