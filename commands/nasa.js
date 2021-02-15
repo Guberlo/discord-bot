@@ -13,14 +13,20 @@ module.exports = {
             let nasaEmbed = new Discord.MessageEmbed()
              .setColor('#732694')
              .setTitle(response.title)
-             .setAuthor(response.copyright)
+             .setURL(response.url)
+             .setAuthor(response.copyright || 'No Copyright')
              .setDescription(response.explanation)
-             .setThumbnail(response.url)
-             .setImage(response.hdurl)
+             .setThumbnail(response.url || '')
              .setTimestamp()
              .setFooter('Scraccato da https://apod.nasa.gov/');
 
+            if (response.media_type === 'image')
+                nasaEmbed.setImage(response.hdurl);
+
             message.channel.send(nasaEmbed);
+
+            if (response.media_type === 'video')
+                message.channel.send(response.url);
         } catch (error) {
             console.error('Error on sending APOD: ', error);
             message.reply('AIA :rocket: :boom:  hai fatto sfallire pure la NASA');
